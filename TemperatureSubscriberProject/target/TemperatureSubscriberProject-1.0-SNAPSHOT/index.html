@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+This page acts as a Subscriber client for of Temperature sensor project.
+-->
+<html>
+    <head>
+        <title>Temperature Tracker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Load required JavaScript files-->
+        <script type="text/JavaScript" src="mqttws31.js"></script>
+        <script type="text/JavaScript" src="ConnectionAJAX.js"></script>
+    </head>
+    <!-- Set Body object for UI , which will display the data-->
+    <!-- We will display the different temperature on screen side by side-->
+    <body style="background-color:black;color:white;">
+        <table>
+            <thead ><h2 style="color:white">Temperature Tracker for Pittsburgh</h2></thead>
+        <tr>
+            <!-- Added a combo box to select type of weather-->
+            <td style="color:yellow;"><p>Select Weather Type:-</p></td>
+            <td style="padding-right: 50px;"></td>
+            <td style="color:yellow;">
+                <select id="weather" onclick="setChoice()">
+                    <option value="pittsburgh/temperatures/hotTemps">Hot Weather</option>
+                    <option value="pittsburgh/temperatures/coldTemps">Cold Weather</option>
+                    <option value="pittsburgh/temperatures/niceTemps">Nice Weather</option>
+                    <option value="all">All Weather</option>
+                </select></td>
+            <!--Inform the status of data being received...-->
+            <td><div id="info"></div></td>
+
+        </tr>
+        <tr style=""> 
+            <td style="background-color:yellowgreen;color:white;"><h3 >Hot Weather Tracker</h3></td>
+        </tr>
+        <tr> 
+            <!--Block to show hot weather data-->
+            <td style="color:yellow;"><p>Temperature :- </p></td>
+            <td><div id="msg1" ></div></td>
+            <td style="padding-right: 200px;"></td>
+            <td style="color:yellow;"><p>Received at Time :- </p></td>
+            <td><div id="msg11" ></td>
+        </tr>
+        <tr> 
+            <td style="background-color:yellowgreen;color:white;padding:0px;"><h3>Cold Weather Tracker</h3></td>
+        </tr>
+        <tr>
+            <!--Block to show hot cold data-->
+            <td style="color:yellow;"><p>Temperature :- </p></td>
+            <td><div id="msg2" ></div></td>
+            <td style="padding-right: 200px;"></td>
+            <td style="color:yellow;"><p>Received at Time :- </p></td>
+            <td><div id="msg22" ></td>
+        </tr>
+        <tr> 
+            <td style="background-color:yellowgreen;color:white;"><h3 >Nice Weather Tracker</h3></td>
+        </tr>
+        <tr> 
+            <!--Block to show hot nice data-->
+            <td style="color:yellow;"><p>Temperature :- </p></td>
+            <td><div id="msg3" ></div></td>
+            <td style="padding-right: 200px;"></td>
+            <td style="color:yellow;"><p>Received at Time :- </p></td>
+            <td><div id="msg33" ></td>
+        </tr>
+        <tr> 
+            <td style="background-color:yellowgreen;color:white;"><h3>All Weather Tracker</h3></td>
+        </tr>
+        <tr>
+            <!--Block to show all weather data-->
+            <td style="color:yellow;"><p>Temperature :- </p></td>
+            <td><div id="msg4" ></div></td>
+            <td style="padding-right: 200px;"></td>
+            <td style="color:yellow;"><p>Received at Time :- </p></td>
+            <td><div id="msg44" ></td>
+        </tr>        
+
+    </table>
+    <!--Notes for user , who will read data...-->
+    <div style="color:skyblue;">Note : GREEN VALUE- Latest received temperature ||    WHITE VALUE- Past data</div>
+</body>
+</html>
